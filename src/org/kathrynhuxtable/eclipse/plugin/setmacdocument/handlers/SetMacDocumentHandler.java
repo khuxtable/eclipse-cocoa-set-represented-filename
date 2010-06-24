@@ -14,7 +14,15 @@
  */
 package org.kathrynhuxtable.eclipse.plugin.setmacdocument.handlers;
 
+import org.eclipse.core.expressions.EvaluationResult;
+import org.eclipse.core.expressions.Expression;
+import org.eclipse.core.expressions.ExpressionInfo;
+import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
+
+import org.eclipse.jface.util.IPropertyChangeListener;
+import org.eclipse.jface.util.PropertyChangeEvent;
 
 import org.eclipse.swt.internal.cocoa.NSString;
 import org.eclipse.swt.internal.cocoa.NSView;
@@ -23,16 +31,13 @@ import org.eclipse.swt.internal.cocoa.OS;
 import org.eclipse.swt.widgets.Shell;
 
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IPartListener2;
-import org.eclipse.ui.IPartService;
+import org.eclipse.ui.ISources;
 import org.eclipse.ui.IStartup;
-import org.eclipse.ui.IWindowListener;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchPartReference;
 import org.eclipse.ui.IWorkbenchPartSite;
-import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.services.IEvaluationService;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -52,12 +57,11 @@ public class SetMacDocumentHandler implements IStartup {
     /**
      * DOCUMENT ME!
      *
+     * @param site DOCUMENT ME!
      * @param part DOCUMENT ME!
      */
-    private void setRepresentedFilename(IWorkbenchPart part) {
-        IWorkbenchPartSite site    = part.getSite();
-        NSString           fileStr = getFilename(site);
-        Shell              shell   = site.getShell();
+    private void setRepresentedFilename(IWorkbenchPartSite site, IEditorPart part) {
+        Shell shell = site.getShell();
 
         if (shell != null) {
             NSView view = shell.view;
@@ -66,7 +70,8 @@ public class SetMacDocumentHandler implements IStartup {
                 NSWindow w = view.window();
 
                 if (w != null) {
-                    long sel = OS.sel_registerName("setRepresentedFilename:");
+                    long     sel     = OS.sel_registerName("setRepresentedFilename:");
+                    NSString fileStr = getFilename(site);
 
                     OS.objc_msgSend(w.id, sel, fileStr.id);
                 }
@@ -106,132 +111,70 @@ public class SetMacDocumentHandler implements IStartup {
     public void earlyStartup() {
         IWorkbench workbench = PlatformUI.getWorkbench();
 
-        workbench.addWindowListener(new MyWindowListener());
+        IEvaluationService service = (IEvaluationService) workbench.getService(IEvaluationService.class);
 
-        for (IWorkbenchWindow w : workbench.getWorkbenchWindows()) {
-            addPartListeners(w);
-        }
+        service.addEvaluationListener(new MyExpression(), new MyPropertyChangeListener(service), "org.kathrynhuxtable.activeEditorChange");
 
         System.out.println("Got here");
     }
 
     /**
      * DOCUMENT ME!
+     */
+    private final class MyExpression extends Expression {
+        boolean rc = false;
+
+        /**
+         * @see org.eclipse.core.expressions.Expression#collectExpressionInfo(org.eclipse.core.expressions.ExpressionInfo)
+         */
+        @Override
+        public void collectExpressionInfo(ExpressionInfo info) {
+            info.addVariableNameAccess(ISources.ACTIVE_EDITOR_NAME);
+        }
+
+        /**
+         * @see org.eclipse.core.expressions.Expression#evaluate(org.eclipse.core.expressions.IEvaluationContext)
+         */
+        @Override
+        public EvaluationResult evaluate(IEvaluationContext context) throws CoreException {
+            rc = !rc;
+            return EvaluationResult.valueOf(rc);
+        }
+    }
+
+    /**
+     * DOCUMENT ME!
      *
-     * @param w
+     * @author  $author$
+     * @version $Revision$, $Date$
      */
-    private void addPartListeners(IWorkbenchWindow w) {
-        IPartService service = w.getPartService();
+    private final class MyPropertyChangeListener implements IPropertyChangeListener {
 
-        if (service != null) {
-            service.addPartListener(new MyPartListener());
-        }
-    }
-
-    /**
-     * DOCUMENT ME!
-     */
-    private final class MyWindowListener implements IWindowListener {
+        IEvaluationService service;
 
         /**
-         * @see org.eclipse.ui.IWindowListener#windowActivated(org.eclipse.ui.IWorkbenchWindow)
+         * Creates a new MyPropertyChangeListener object.
+         *
+         * @param service DOCUMENT ME!
          */
-        @Override
-        public void windowActivated(IWorkbenchWindow w) {
-            System.out.println("workbenth window activated.");
+        MyPropertyChangeListener(IEvaluationService service) {
+            this.service = service;
         }
 
         /**
-         * @see org.eclipse.ui.IWindowListener#windowClosed(org.eclipse.ui.IWorkbenchWindow)
+         * @see org.eclipse.jface.util.IPropertyChangeListener#propertyChange(org.eclipse.jface.util.PropertyChangeEvent)
          */
         @Override
-        public void windowClosed(IWorkbenchWindow w) {
+        public void propertyChange(PropertyChangeEvent arg0) {
+            Object editor = service.getCurrentState().getVariable(ISources.ACTIVE_EDITOR_NAME);
+            Object part   = service.getCurrentState().getVariable(ISources.ACTIVE_PART_NAME);
+
+            if (part != null && part instanceof IWorkbenchPart) {
+                IWorkbenchPartSite site = ((IWorkbenchPart) part).getSite();
+
+                setRepresentedFilename(site, editor instanceof IEditorPart ? (IEditorPart) editor : null);
+            }
         }
 
-        /**
-         * @see org.eclipse.ui.IWindowListener#windowDeactivated(org.eclipse.ui.IWorkbenchWindow)
-         */
-        @Override
-        public void windowDeactivated(IWorkbenchWindow w) {
-        }
-
-        /**
-         * @see org.eclipse.ui.IWindowListener#windowOpened(org.eclipse.ui.IWorkbenchWindow)
-         */
-        @Override
-        public void windowOpened(IWorkbenchWindow w) {
-            addPartListeners(w);
-        }
-    }
-
-    /**
-     * DOCUMENT ME!
-     */
-    private final class MyPartListener implements IPartListener2 {
-
-        /**
-         * @see org.eclipse.ui.IPartListener2#partActivated(org.eclipse.ui.IWorkbenchPartReference)
-         */
-        @Override
-        public void partActivated(IWorkbenchPartReference ref) {
-            System.out.println("Part activated: " + ref.getTitle());
-            setRepresentedFilename(ref.getPart(false));
-        }
-
-        /**
-         * @see org.eclipse.ui.IPartListener2#partBroughtToTop(org.eclipse.ui.IWorkbenchPartReference)
-         */
-        @Override
-        public void partBroughtToTop(IWorkbenchPartReference ref) {
-            System.out.println("Part brought to top: " + ref.getTitle());
-        }
-
-        /**
-         * @see org.eclipse.ui.IPartListener2#partClosed(org.eclipse.ui.IWorkbenchPartReference)
-         */
-        @Override
-        public void partClosed(IWorkbenchPartReference ref) {
-            System.out.println("Part closed: " + ref.getTitle());
-        }
-
-        /**
-         * @see org.eclipse.ui.IPartListener2#partDeactivated(org.eclipse.ui.IWorkbenchPartReference)
-         */
-        @Override
-        public void partDeactivated(IWorkbenchPartReference ref) {
-            System.out.println("Part deactivated: " + ref.getTitle());
-        }
-
-        /**
-         * @see org.eclipse.ui.IPartListener2#partHidden(org.eclipse.ui.IWorkbenchPartReference)
-         */
-        @Override
-        public void partHidden(IWorkbenchPartReference ref) {
-            System.out.println("Part hidden: " + ref.getTitle());
-        }
-
-        /**
-         * @see org.eclipse.ui.IPartListener2#partInputChanged(org.eclipse.ui.IWorkbenchPartReference)
-         */
-        @Override
-        public void partInputChanged(IWorkbenchPartReference ref) {
-            System.out.println("Part input changed: " + ref.getTitle());
-        }
-
-        /**
-         * @see org.eclipse.ui.IPartListener2#partOpened(org.eclipse.ui.IWorkbenchPartReference)
-         */
-        @Override
-        public void partOpened(IWorkbenchPartReference ref) {
-            System.out.println("Part opened: " + ref.getTitle());
-        }
-
-        /**
-         * @see org.eclipse.ui.IPartListener2#partVisible(org.eclipse.ui.IWorkbenchPartReference)
-         */
-        @Override
-        public void partVisible(IWorkbenchPartReference ref) {
-            System.out.println("Part visible: " + ref.getTitle());
-        }
     }
 }
