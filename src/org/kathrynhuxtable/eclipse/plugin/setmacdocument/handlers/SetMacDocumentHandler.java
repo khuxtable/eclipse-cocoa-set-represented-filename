@@ -15,13 +15,11 @@
 package org.kathrynhuxtable.eclipse.plugin.setmacdocument.handlers;
 
 import org.eclipse.core.resources.IFile;
-
 import org.eclipse.swt.internal.cocoa.NSString;
 import org.eclipse.swt.internal.cocoa.NSView;
 import org.eclipse.swt.internal.cocoa.NSWindow;
 import org.eclipse.swt.internal.cocoa.OS;
 import org.eclipse.swt.widgets.Shell;
-
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IPartService;
@@ -78,7 +76,7 @@ public class SetMacDocumentHandler implements IStartup {
     @Override
     public void earlyStartup() {
         IWorkbench workbench = PlatformUI.getWorkbench();
-
+        
         for (IWorkbenchWindow w : workbench.getWorkbenchWindows()) {
             IPartService service = w.getPartService();
 
