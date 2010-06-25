@@ -34,10 +34,10 @@ import org.eclipse.ui.services.IEvaluationService;
  *
  * <p>This runs at startup and registers a listener on changes to active
  * editor.</p>
- * 
+ *
  * @author Kathryn Huxtable
  */
-public class SetMacDocumentHandler implements IStartup {
+public class Startup implements IStartup {
 
     /**
      * @see org.eclipse.ui.IStartup#earlyStartup()
@@ -83,8 +83,8 @@ public class SetMacDocumentHandler implements IStartup {
      */
     private static final class ActiveEditorPropertyChangeListener implements IPropertyChangeListener {
 
-        private IEvaluationService       service;
-        private CocoaRepresentedFilename representedFilename;
+        private IEvaluationService service;
+        private CocoaCode          representedFilename;
 
         /**
          * Creates a new ActiveEditorPropertyChangeListener object.
@@ -92,8 +92,11 @@ public class SetMacDocumentHandler implements IStartup {
          * @param service the evaluation service we're registered with.
          */
         ActiveEditorPropertyChangeListener(IEvaluationService service) {
+            // Save the service.
             this.service             = service;
-            this.representedFilename = new CocoaRepresentedFilename();
+            
+            // Instantiate the class to do the work.
+            this.representedFilename = new CocoaCode();
         }
 
         /**

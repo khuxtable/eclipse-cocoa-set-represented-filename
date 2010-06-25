@@ -26,13 +26,15 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPartSite;
 
 /**
- * Set the represented filename associated with the active editor, or remove it
- * if no file is associated, or there is no active editor.
- * 
+ * Cocoa-specific code.
+ *
+ * <p>Set the represented filename associated with the active editor, or remove
+ * it if no file is associated, or there is no active editor.</p>
+ *
  * @author Kathryn Huxtable
  */
 @SuppressWarnings("restriction")
-public class CocoaRepresentedFilename {
+public class CocoaCode {
 
     /**
      * Set the represented filename for the Cocoa NSWindow associated with the
