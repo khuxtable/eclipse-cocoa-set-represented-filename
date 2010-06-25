@@ -42,7 +42,6 @@ public class Startup implements IStartup {
     /**
      * @see org.eclipse.ui.IStartup#earlyStartup()
      */
-    @Override
     public void earlyStartup() {
         // Get the evaluation service.
         IEvaluationService service = (IEvaluationService) PlatformUI.getWorkbench().getService(IEvaluationService.class);
@@ -102,7 +101,6 @@ public class Startup implements IStartup {
         /**
          * @see org.eclipse.jface.util.IPropertyChangeListener#propertyChange(org.eclipse.jface.util.PropertyChangeEvent)
          */
-        @Override
         public void propertyChange(PropertyChangeEvent event) {
             Object part = service.getCurrentState().getVariable(ISources.ACTIVE_PART_NAME);
 
