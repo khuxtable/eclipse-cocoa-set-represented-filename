@@ -17,7 +17,7 @@
 <plugin>
 
    <extension point="org.eclipse.ui.startup">
-      <startup class="org.kathrynhuxtable.eclipse.plugin.setmacdocument.handlers.SetMacDocumentHandler"/>
+      <startup class="org.kathrynhuxtable.eclipse.plugin.setmacdocument.SetMacDocumentHandler"/>
    </extension>
 
 </plugin>
