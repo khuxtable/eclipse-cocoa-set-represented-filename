@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kathrynhuxtable.eclipse.plugin.setmacdocument;
+package org.kathrynhuxtable.eclipse.plugin.cocoasetrepresentedfilename;
 
 import org.eclipse.core.expressions.EvaluationResult;
 import org.eclipse.core.expressions.Expression;

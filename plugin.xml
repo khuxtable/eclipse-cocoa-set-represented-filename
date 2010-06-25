@@ -17,7 +17,7 @@
 <plugin>
 
    <extension point="org.eclipse.ui.startup">
-      <startup class="org.kathrynhuxtable.eclipse.plugin.setmacdocument.Startup"/>
+      <startup class="org.kathrynhuxtable.eclipse.plugin.cocoasetrepresentedfilename.Startup"/>
    </extension>
 
 </plugin>

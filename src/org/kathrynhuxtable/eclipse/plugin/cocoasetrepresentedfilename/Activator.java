@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kathrynhuxtable.eclipse.plugin.setmacdocument;
+package org.kathrynhuxtable.eclipse.plugin.cocoasetrepresentedfilename;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 
@@ -28,7 +28,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
     /** The plug-in ID */
-    public static final String PLUGIN_ID = "org.kathrynhuxtable.eclipse.plugin.setmacdocument";
+    public static final String PLUGIN_ID = "org.kathrynhuxtable.eclipse.plugin.cocoasetrepresentedfilename";
 
     // The shared instance
     private static Activator   plugin;
