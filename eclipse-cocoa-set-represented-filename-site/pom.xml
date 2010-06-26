@@ -1,0 +1,153 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.kathrynhuxtable.eclipse.plugin</groupId>
+	<artifactId>eclipse-cocoa-set-represented-filename-plugin</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
+	<packaging>pom</packaging>
+	<name>Eclipse Cocoa plugin to set Mac OS X represented filename for active file.</name>
+	<description>Mac OS X Cocoa Eclipse 3.5/3.6 plugin to set the Mac represented document in the
+        window so that, among other things, DTerm works.</description>
+	<inceptionYear>2010</inceptionYear>
+	<url>http://khuxtable.github.com/eclipse-cocoa-set-represented-filename</url>
+	<developers>
+		<developer>
+			<id>khuxtable</id>
+			<name>Kathryn Huxtable</name>
+			<email>kathryn@kathrynhuxtable.org</email>
+			<url>http://www.kathrynhuxtable.org</url>
+			<organization>kathrynhuxtable.org</organization>
+			<organizationUrl>http://www.kathrynhuxtable.org</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>-6</timezone>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>LICENSE.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<organization>
+		<name>kathrynhuxtable.org</name>
+		<url>http://www.kathrynhuxtable.org</url>
+	</organization>
+	<issueManagement>
+		<system>GitHub</system>
+		<url>http://github.com/khuxtable/eclipse-cocoa-set-represented-filename/issues</url>
+	</issueManagement>
+	<mailingLists>
+		<mailingList>
+			<name>Kathryn Huxtable's Projects</name>
+			<subscribe>kathryn-huxtable-projects+subscribe@googlegroups.com</subscribe>
+			<unsubscribe>kathryn-huxtable-projects+unsubscribe@googlegroups.com</unsubscribe>
+			<post>kathryn-huxtable-projects@googlegroups.com</post>
+			<archive>http://groups.google.com/group/kathryn-huxtable-projects</archive>
+		</mailingList>
+	</mailingLists>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.kathrynhuxtable.maven.plugins</groupId>
+				<artifactId>docbkx-wrapper-plugin</artifactId>
+				<version>0.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<phase>pre-site</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>2.1.1</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<!-- Generate the following standard project reports. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.2</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>summary</report>
+							<report>dependencies</report>
+							<report>dependency-convergence</report>
+							<report>project-team</report>
+							<report>issue-tracking</report>
+							<report>mailing-list</report>
+							<report>license</report>
+							<report>scm</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<!-- Configure the source cross reference. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<outputDirectory>${project.reporting.outputDirectory}/xref</outputDirectory>
+					<doctitle>${project.name} ${project.version} Code Cross-Reference</doctitle>
+					<windowtitle>${project.name} ${project.version} Java API.</windowtitle>
+					<javadocDir>${project.reporting.outputDirectory}/apidocs</javadocDir>
+				</configuration>
+			</plugin>
+			<!-- Generate a tag list report to easily find TODO and FIXME comments. -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<tags>
+						<tag>TODO</tag>
+						<tag>FIXME</tag>
+					</tags>
+				</configuration>
+			</plugin>
+			<!-- Configure the PMD report, reporting on coding style. This also configures CPD (copy/paste detection) 
+				reporting. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<targetJdk>1.6</targetJdk>
+				</configuration>
+			</plugin>
+			<!-- Configure the javadoc. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.6.1</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Implementation-Classifier>javadoc</Implementation-Classifier>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>
