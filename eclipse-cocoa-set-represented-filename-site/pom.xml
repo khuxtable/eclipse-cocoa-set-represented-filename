@@ -15,6 +15,14 @@
     <packaging>pom</packaging>
     <name>Eclipse Cocoa plugin to set Mac OS X represented filename for active file.</name>
 
+    <licenses>
+        <license>
+            <name>Eclipse Public License Version 1.0</name>
+            <url>../LICENSE.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -50,7 +58,6 @@
 						<reports>
 							<report>summary</report>
 							<report>dependencies</report>
-							<report>dependency-convergence</report>
 							<report>project-team</report>
 							<report>issue-tracking</report>
 							<report>mailing-list</report>

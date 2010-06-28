@@ -28,7 +28,7 @@
 	<licenses>
 		<license>
             <name>Eclipse Public License Version 1.0</name>
-            <url>../LICENSE.html</url>
+            <url>LICENSE.html</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
