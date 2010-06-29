@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Converted by db4-upgrade version 1.0 -->
+<article version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:ns5="http://www.w3.org/1999/xhtml"
+         xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+         xmlns:ns3="http://www.w3.org/2000/svg"
+         xmlns:ns="http://docbook.org/ns/docbook">
+  <info>
+    <title>Installation</title>
+
+    <author>
+      <personname><firstname>Kathryn</firstname><surname>Huxtable</surname></personname>
+
+      <affiliation>
+        <orgname>kathrynhuxtable.org</orgname>
+      </affiliation>
+    </author>
+
+    <pubdate>2010-06-28</pubdate>
+  </info>
+
+  <section>
+    <info>
+      <title>Installation</title>
+    </info>
+
+    <para>To install the Eclipse Cocoa Set Represented Filename plugin, use
+    the following Eclipse update site.</para>
+
+    <para>Update Site: <link
+    xlink:href="http://www.kathrynhuxtable.org/eclipse">http://www.kathrynhuxtable.org/eclipse</link>.</para>
+
+    <para>To install this plugin in the Eclipse IDE:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>Select Help &gt; Install New Software. This should display the
+        "Install" dialog.</para>
+      </listitem>
+
+      <listitem>
+        <para>Paste the Update Site URL into the field named "Work with:" and
+        press <keysym>Enter</keysym>. Pressing <keysym>Enter</keysym> should
+        cause Eclipse to update list of available plugins and
+        components.</para>
+      </listitem>
+
+      <listitem>
+        <para>Choose the component listed under kathrynhuxtable.org: "Cocoa
+        Set Represented Filename".</para>
+      </listitem>
+
+      <listitem>
+        <para>Click <keysym>Next</keysym>. Eclipse will then check to see if
+        there are any issues which would prevent a successful
+        installation.</para>
+      </listitem>
+
+      <listitem>
+        <para>Click <keysym>Next</keysym> and agree to the terms of the
+        Eclipse Public License v1.0.</para>
+      </listitem>
+
+      <listitem>
+        <para>Click <keysym>Finish</keysym> to begin the installation process.
+        Eclipse will then download and install the necessary
+        components.</para>
+      </listitem>
+
+      <listitem>
+        <para>Once the installation process is finished, Eclipse will ask you
+        if you want to restart the IDE. It is strongly recommended that you
+        restart your IDE after installing m2eclipse.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+</article>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Converted by db4-upgrade version 1.0 -->
+<article version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:ns5="http://www.w3.org/1999/xhtml"
+         xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+         xmlns:ns3="http://www.w3.org/2000/svg"
+         xmlns:ns="http://docbook.org/ns/docbook">
+  <info>
+    <title>Introduction</title>
+
+    <author>
+      <personname><firstname>Kathryn</firstname><surname>Huxtable</surname></personname>
+
+      <affiliation>
+        <orgname>kathrynhuxtable.org</orgname>
+      </affiliation>
+    </author>
+
+    <pubdate>2010-06-28</pubdate>
+  </info>
+
+  <section>
+    <info>
+      <title>Introduction</title>
+    </info>
+
+    <para>The eclipse-cocoa-set-represented-filename plugin is an Eclipse
+    plugin that sets the represented filename for the currently active editor
+    on Mac OS X. This will run on any Cocoa version of Eclipse, e.g. 3.5
+    Galileo and 3.6 Helios. The Ganymede must not be the Carbon
+    version.</para>
+
+    <para>The effect of this is that a document icon will appear in the title
+    bar of the window representing the file being edited. The icon tracks the
+    active editor, so as you move between files the icon will change. If you
+    have multiple windows open and they have different active editors the icon
+    for each window will represent the file in the active editor for that
+    window. If no active editor representing a file is present in a window
+    then the icon will not appear.</para>
+
+    <para>If you <keysym>Cmd-click</keysym> on the icon it will open a popup
+    window showing the path to the file. This is a standard Cocoa framework
+    feature. It is available via the AXUrl attribute to accessibility
+    applications to provide the filename.</para>
+
+    <para>The reason this plugin exists is that I needed a way to make the
+    DTerm application open terminal windows with the current directory set for
+    the active file in Eclipse. There is no way for the Eclipse team to make
+    this happen without putting platform-specific code into SWT, and they,
+    quite rightly, didn't want to do that. But a plugin works fine.</para>
+
+    <para>See the <link xlink:href="installation.html">installation</link>
+    page for installation instructions.</para>
+  </section>
+</article>

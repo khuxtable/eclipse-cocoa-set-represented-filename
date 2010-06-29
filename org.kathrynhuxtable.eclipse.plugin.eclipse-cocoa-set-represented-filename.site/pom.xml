@@ -8,13 +8,15 @@
     <parent>
         <groupId>org.kathrynhuxtable.eclipse.plugin</groupId>
         <artifactId>eclipse-cocoa-set-represented-filename-parent</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>0.1.0</version>
     </parent>
 
-    <artifactId>eclipse-cocoa-set-represented-filename-site</artifactId>
+    <groupId>org.kathrynhuxtable.eclipse.plugin.eclipse-cocoa-set-represented-filename</groupId>
+    <artifactId>site</artifactId>
     <packaging>pom</packaging>
     <name>Eclipse Cocoa plugin to set Mac OS X represented filename for active file.</name>
 
+    <url>http://khuxtable.github.com/eclipse-cocoa-set-represented-filename</url>
     <licenses>
         <license>
             <name>Eclipse Public License Version 1.0</name>

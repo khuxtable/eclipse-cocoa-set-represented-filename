@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.kathrynhuxtable.eclipse.plugin</groupId>
 	<artifactId>eclipse-cocoa-set-represented-filename-parent</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<packaging>pom</packaging>
 	<name>Eclipse Cocoa plugin to set Mac OS X represented filename for active file.</name>
 	<description>Mac OS X Cocoa Eclipse 3.5/3.6 plugin to set the Mac represented document in the
@@ -51,7 +51,7 @@
 	</mailingLists>
 
     <modules>
-        <module>org.kathrynhuxtable.eclipse.plugin.eclipse-cocoa-set-represented-filename-plugin</module>
-        <module>org.kathrynhuxtable.eclipse.plugin.eclipse-cocoa-set-represented-filename-site</module>
+        <module>org.kathrynhuxtable.eclipse.plugin.eclipse-cocoa-set-represented-filename.cocoa-set-represented-filename-plugin</module>
+        <module>org.kathrynhuxtable.eclipse.plugin.eclipse-cocoa-set-represented-filename.site</module>
     </modules>
 </project>

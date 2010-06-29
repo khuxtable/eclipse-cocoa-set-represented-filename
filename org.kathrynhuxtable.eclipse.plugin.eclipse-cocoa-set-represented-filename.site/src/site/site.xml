@@ -23,7 +23,7 @@
 
         <menu name="Cocoa Set Represented Filename">
             <item name="Introduction" href="index.html" />
-            <item name="Usage" href="usage.html" />
+            <item name="Installation" href="installation.html" />
         </menu>
 
         <menu name="Project Information">
