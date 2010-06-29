@@ -13,7 +13,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Eclipse Cocoa Set Represented Filename Plugin - Introduction</title>
+    <title>Eclipse Cocoa Set Represented Filename Plugin - Installation</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -82,12 +82,12 @@
             <ul>
               
     <li>
-              <strong>Introduction</strong>
-        </li>
+                    <a href="index.html">Introduction</a>
+          </li>
               
     <li>
-                    <a href="installation.html">Installation</a>
-          </li>
+              <strong>Installation</strong>
+        </li>
           </ul>
               <h5>Project Information</h5>
             <ul>
@@ -124,38 +124,42 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div xmlns="http://www.w3.org/1999/xhtml" class="article" title="Introduction">
-  <div class="section" title="Introduction">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="article" title="Installation">
+  <div class="section" title="Installation">
     <div class="titlepage">
       <div>
         <div>
-          <h1 class="title"><a id="d16e17" shape="rect"></a>Introduction</h1>
+          <h1 class="title"><a id="d0e17" shape="rect"></a>Installation</h1>
         </div>
       </div>
     </div>
-    <p>The eclipse-cocoa-set-represented-filename plugin is an Eclipse
-    plugin that sets the represented filename for the currently active editor
-    on Mac OS X. This will run on any Cocoa version of Eclipse, e.g. 3.5
-    Galileo and 3.6 Helios. The Ganymede must not be the Carbon
-    version.</p>
-    <p>The effect of this is that a document icon will appear in the title
-    bar of the window representing the file being edited. The icon tracks the
-    active editor, so as you move between files the icon will change. If you
-    have multiple windows open and they have different active editors the icon
-    for each window will represent the file in the active editor for that
-    window. If no active editor representing a file is present in a window
-    then the icon will not appear.</p>
-    <p>If you <span class="keysym">Cmd-click</span> on the icon it will open a popup
-    window showing the path to the file. This is a standard Cocoa framework
-    feature. It is available via the AXUrl attribute to accessibility
-    applications to provide the filename.</p>
-    <p>The reason this plugin exists is that I needed a way to make the
-    DTerm application open terminal windows with the current directory set for
-    the active file in Eclipse. There is no way for the Eclipse team to make
-    this happen without putting platform-specific code into SWT, and they,
-    quite rightly, didn't want to do that. But a plugin works fine.</p>
-    <p>See the <a class="link" href="installation.html" target="_top" shape="rect">installation</a>
-    page for installation instructions.</p>
+    <p>To install the Eclipse Cocoa Set Represented Filename plugin, use
+    the following Eclipse update site.</p>
+    <p>Update Site: <a class="link" href="http://www.kathrynhuxtable.org/eclipse" target="_top" shape="rect">http://www.kathrynhuxtable.org/eclipse</a>.</p>
+    <p>To install this plugin in the Eclipse IDE:</p>
+    <div class="orderedlist">
+      <ol class="orderedlist" type="1">
+        <li class="listitem"><p>Select Help &gt; Install New Software. This should display the
+        "Install" dialog.</p></li>
+        <li class="listitem"><p>Paste the Update Site URL into the field named "Work with:" and
+        press <span class="keysym">Enter</span>. Pressing <span class="keysym">Enter</span> should
+        cause Eclipse to update list of available plugins and
+        components.</p></li>
+        <li class="listitem"><p>Choose the component listed under kathrynhuxtable.org: "Cocoa
+        Set Represented Filename".</p></li>
+        <li class="listitem"><p>Click <span class="keysym">Next</span>. Eclipse will then check to see if
+        there are any issues which would prevent a successful
+        installation.</p></li>
+        <li class="listitem"><p>Click <span class="keysym">Next</span> and agree to the terms of the
+        Eclipse Public License v1.0.</p></li>
+        <li class="listitem"><p>Click <span class="keysym">Finish</span> to begin the installation process.
+        Eclipse will then download and install the necessary
+        components.</p></li>
+        <li class="listitem"><p>Once the installation process is finished, Eclipse will ask you
+        if you want to restart the IDE. It is strongly recommended that you
+        restart your IDE after installing m2eclipse.</p></li>
+      </ol>
+    </div>
   </div>
 </div>
       </div>
