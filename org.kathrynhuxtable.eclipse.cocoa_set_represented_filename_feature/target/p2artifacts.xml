@@ -5,7 +5,7 @@
     <properties size='7'>
       <property name='artifact.size' value='7071'/>
       <property name='download.size' value='7071'/>
-      <property name='download.md5' value='bf874daeffd82a4f491830eda9d7019f'/>
+      <property name='download.md5' value='86d26596a1ebab446b3e440e8a97e575'/>
       <property name='maven-artifactId' value='org.kathrynhuxtable.eclipse.cocoa_set_represented_filename_feature'/>
       <property name='maven-groupId' value='org.kathrynhuxtable.eclipse.cocoa_set_represented_filename'/>
       <property name='maven-version' value='0.1.0'/>

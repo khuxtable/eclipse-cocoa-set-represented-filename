@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+			"http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<!--#set var="TITLE" value="Cocoa Set Represented Filename Update Site" -->
+<!--#set var="TOPIMG" value="thumb_kathryn_smaller.jpg" -->
+<head>
+    <title>Cocoa Set Represented Filename Update Site</title>
+    <!-- owner_name="Kathryn Huxtable, kathrynhuxtable.org" -->
+    <link rev="made" href="mailto:kathryn@kathrynhuxtable.org">
+    <!-- owner_info=Web Administrator, kathrynhuxtable.org" -->
+    <link rel="stylesheet" href="/css/kstyle.css">
+</head>
+
+<!--#include virtual="/ssi/bodytag.shtml"-->
+
+<div class="entry">
+
+<p>This is the update site location for the <a href="http://khuxtable.github.com/eclipse-cocoa-set-represented-filename">Cocoa Set Represented Filename</a> Eclipse plugin:
+
+<p>See the <a href="http://khuxtable.github.com/eclipse-cocoa-set-represented-filename/installation.html">installation instructions</a>
+or just drop the <a href="plugins/org.kathrynhuxtable.eclipse.cocoa_set_represented_filename_plugin_0.1.0.jar">plugin</a> into the Eclipse "dropins" folder.</p>
+
+<!--#include virtual="/ssi/trailer.shtml"-->
+
+</body>
+</html>

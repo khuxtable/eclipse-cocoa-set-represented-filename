@@ -1,7 +1,0 @@
-<site>
-  <description name="Cocoa Set Represented Filename Update Site" url="http://www.kathrynhuxtable.org/eclipse/cocoa-set-represented-filename">Mac OS X Cocoa Eclipse 3.5/3.6 plugin to set the Mac represented document in the window so that, among other things, DTerm works.</description>
-  <feature id="org.kathrynhuxtable.eclipse.cocoa_set_represented_filename_feature" os="macosx" ws="cocoa" url="features/org.kathrynhuxtable.eclipse.cocoa_set_represented_filename_feature_0.1.0.jar" version="0.1.0">
-    <category name="org.kathrynhuxtable.eclipse.cocoa_set_represented_filename"/>
-  </feature>
-  <category-def name="org.kathrynhuxtable.eclipse.cocoa_set_represented_filename" label="Cocoa Set Represented Filename"/>
-</site>
