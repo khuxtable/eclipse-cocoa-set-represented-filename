@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<artifacts size='1'>
+  <artifact classifier='org.eclipse.update.feature' id='org.kathrynhuxtable.eclipse.cocoa_set_represented_filename_feature' version='0.1.0'>
+    <properties size='7'>
+      <property name='artifact.size' value='7071'/>
+      <property name='download.size' value='7071'/>
+      <property name='download.md5' value='bf874daeffd82a4f491830eda9d7019f'/>
+      <property name='maven-artifactId' value='org.kathrynhuxtable.eclipse.cocoa_set_represented_filename_feature'/>
+      <property name='maven-groupId' value='org.kathrynhuxtable.eclipse.cocoa_set_represented_filename'/>
+      <property name='maven-version' value='0.1.0'/>
+      <property name='download.contentType' value='application/zip'/>
+    </properties>
+  </artifact>
+</artifacts>

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Cocoa Set Represented Filename
-Bundle-SymbolicName: org.kathrynhuxtable.eclipse.plugin.cocoasetrepresentedfilename;singleton:=true
+Bundle-SymbolicName: org.kathrynhuxtable.eclipse.cocoa_set_represented_filename_plugin;singleton:=true
 Bundle-Version: 0.1.0
 Bundle-Activator: org.kathrynhuxtable.eclipse.plugin.cocoasetrepresentedfilename.Activator
 Bundle-Vendor: kathrynhuxtable.org

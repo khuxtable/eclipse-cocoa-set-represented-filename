@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<parent>
+		<groupId>org.kathrynhuxtable.eclipse.cocoa_set_represented_filename</groupId>
+		<artifactId>org.kathrynhuxtable.eclipse.cocoa_set_represented_filename_parent</artifactId>
+		<version>0.1.0</version>
+		<relativePath>../org.kathrynhuxtable.eclipse.cocoa_set_represented_filename_parent/pom.xml</relativePath>
+	</parent>
+
+	<groupId>org.kathrynhuxtable.eclipse.cocoa_set_represented_filename</groupId>
+	<artifactId>org.kathrynhuxtable.eclipse.cocoa_set_represented_filename_plugin</artifactId>
+	<packaging>eclipse-plugin</packaging>
+	<name>Eclipse Cocoa plugin to set Mac OS X represented filename for active file.</name>
+
+	<repositories>
+		<repository>
+			<id>galileo</id>
+			<url>http://download.eclipse.org/releases/galileo</url>
+			<layout>p2</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>tycho</id>
+			<url>https://repository.sonatype.org/content/repositories/all-009/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+</project>
