@@ -46,7 +46,36 @@
 				<version>2.1.1</version>
 			</plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.scm</groupId>
+				<artifactId>maven-scm-provider-gitexe</artifactId>
+				<version>1.3</version>
+			</extension>
+			<extension>
+				<groupId>org.apache.maven.scm</groupId>
+				<artifactId>maven-scm-manager-plexus</artifactId>
+				<version>1.3</version>
+			</extension>
+			<extension>
+				<groupId>org.kathrynhuxtable.maven.wagon</groupId>
+				<artifactId>wagon-gitsite</artifactId>
+				<version>0.2</version>
+			</extension>
+		</extensions>
 	</build>
+
+	<distributionManagement>
+		<!--
+			Site to deploy site documentation to. Note that this overwrites the previous site documentation.
+			But if someone checks out the project, they can rebuild the site documentation, so we're not too
+			concerned.
+		-->
+		<site>
+			<id>github-site</id>
+			<url>gitsite:git@github.com/khuxtable/eclipse-cocoa-set-represented-filename.git</url>
+		</site>
+	</distributionManagement>
 
 	<reporting>
 		<plugins>
@@ -71,4 +100,10 @@
 			</plugin>
 		</plugins>
 	</reporting>
+	<scm>
+		<connection>scm:git:git://github.com/khuxtable/eclipse-cocoa-set-represented-filename.git</connection>
+		<developerConnection>scm:git:git+ssh://git@github.com/khuxtable/eclipse-cocoa-set-represented-filename.git
+		</developerConnection>
+		<url>http://github.com/khuxtable/eclipse-cocoa-set-represented-filename</url>
+	</scm>
 </project>

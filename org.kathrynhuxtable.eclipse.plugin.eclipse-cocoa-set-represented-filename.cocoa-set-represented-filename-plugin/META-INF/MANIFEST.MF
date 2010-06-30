@@ -1,13 +1,14 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Cocoa Set Represented Filename
-Bundle-SymbolicName: org.kathrynhuxtable.eclipse.plugin.cocoasetrepresentedfilename; singleton:=true
+Bundle-SymbolicName: org.kathrynhuxtable.eclipse.plugin.cocoasetrepresentedfilename;singleton:=true
 Bundle-Version: 0.1.0
 Bundle-Activator: org.kathrynhuxtable.eclipse.plugin.cocoasetrepresentedfilename.Activator
+Bundle-Vendor: kathrynhuxtable.org
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources;bundle-version="3.5.2",
  org.eclipse.core.expressions;bundle-version="3.4.101"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-Vendor: kathrynhuxtable.org
 Bundle-ActivationPolicy: lazy
+Export-Package: org.kathrynhuxtable.eclipse.plugin.cocoasetrepresentedfilename
